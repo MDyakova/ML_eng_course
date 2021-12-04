@@ -2,7 +2,7 @@ Commands for build and run dockerfile.
 
 docker build -t starspace:latest .
 
-docker run -it -v /home/peter/Documents/blasttv/Test/Masha:/opt/starspace starspace:latest
+docker run -it -v /home/maria/ml_engineering_course/:/opt/starspace starspace:latest
 
 Commands to modify files on the local machine
 
