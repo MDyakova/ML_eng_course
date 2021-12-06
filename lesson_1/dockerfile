@@ -2,6 +2,11 @@ FROM ubuntu:focal
 
 LABEL maintainer="Mariya Dyakova"
 
+ARG USER_ID
+ARG GROUP_ID
+
+# ENV  USER=$USER_ID
+
 RUN apt-get update \
     &&  apt-get install -y wget \
     git \
@@ -18,20 +23,12 @@ RUN git clone https://github.com/facebookresearch/Starspace.git \
     && cd Starspace \
     && make
 
-# create a user to launch the application
-RUN groupadd --gid 5000 newuser \
-    && useradd --home-dir /home/newuser --create-home --uid 5000 \
-        --gid 5000 --shell /bin/sh --skel /dev/null newuser
+RUN addgroup --gid $GROUP_ID user1
+RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user1
+USER user1
 
-
-
-RUN mkdir /opt/starspace \
-    && chmod -R 0775 /opt/starspace \
-    && chown -R newuser:newuser /opt/starspace \
-    && chmod g+s /opt/starspace/
+RUN mkdir -p /home/user1/starspace
     
-WORKDIR /opt/starspace
-
-USER newuser
+WORKDIR /home/user1/starspace
 
 CMD /Starspace/starspace train -trainFile ./uci_train_starspace_formatted.txt -model modelSaveFile

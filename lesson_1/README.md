@@ -5,8 +5,10 @@ Clone this repo.
 
 Commands for build and run dockerfile.
 
-Run scripts:
-./ML_eng_course/lesson_1/run.sh
+docker build -t myimage \
+  --build-arg USER_ID=$(id -u) \
+  --build-arg GROUP_ID=$(id -g) .
 
-If nessesary to modify recieved files:
-sudo su newuser
+docker run -it --rm \
+  --mount "type=bind,src=$(pwd)/data,dst=/home/user1/starspace" \
+  myimage
