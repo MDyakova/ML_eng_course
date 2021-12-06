@@ -3,9 +3,13 @@ https://github.com/louislung/DAE_RNN_News_Recommendation/blob/master/starspace/p
 
 Commands for build and run dockerfile.
 
+chmod -R 777 ML_eng_course/
+
+cd ML_eng_course/lesson_1/
+
 docker build -t starspace:latest .
 
-docker run -it -v /home/maria/ml_engineering_course/:/opt/starspace starspace:latest
+docker run -it -v $(pwd):/opt/starspace starspace:latest
 
 Commands to modify files on the local machine
 
