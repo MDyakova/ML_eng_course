@@ -7,7 +7,7 @@ cd ML_eng_course/lesson_1/
 
 docker build -t starspace:latest .
 
-docker run -it -v $(pwd):/opt/starspace starspace:latest
+docker run -it -v $(pwd)/data:/opt/starspace starspace:latest
 
 # Commands to modify files on the local machine
 
