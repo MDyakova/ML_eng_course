@@ -1,20 +1,12 @@
-Data.
+Create data file uci_train_starspace_formatted.txt.
 https://github.com/louislung/DAE_RNN_News_Recommendation/blob/master/starspace/prepare_starspace_formatted_data.ipynb
+
+Clone this repo.
 
 Commands for build and run dockerfile.
 
-chmod -R 777 ML_eng_course/
+Run scripts:
+./ML_eng_course/lesson_1/run.sh
 
-cd ML_eng_course/lesson_1/
-
-docker build -t starspace:latest .
-
-docker run -it -v $(pwd):/opt/starspace starspace:latest
-
-Commands to modify files on the local machine
-
-sudo groupadd --gid 5000 newuser \
-    && useradd --home-dir /home/newuser --create-home --uid 5000 \
-        --gid 5000 --shell /bin/sh --skel /dev/null newuser
-
+If nessesary to modify recieved files:
 sudo su newuser
