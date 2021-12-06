@@ -1,3 +1,6 @@
+Data.
+https://github.com/louislung/DAE_RNN_News_Recommendation/blob/master/starspace/prepare_starspace_formatted_data.ipynb
+
 Commands for build and run dockerfile.
 
 docker build -t starspace:latest .
