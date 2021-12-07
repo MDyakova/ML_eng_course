@@ -23,5 +23,5 @@ or
 run with volume (better way)
 
 ```bash
-docker run -it -v $(pwd)/volume:/home/user1/starspace myimage
+docker run -it -v $(pwd)/data:/home/user1/starspace myimage
 ```
