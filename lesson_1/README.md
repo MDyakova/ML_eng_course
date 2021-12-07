@@ -10,8 +10,18 @@ docker build -t myimage \
   --build-arg USER_ID=$(id -u) \
   --build-arg GROUP_ID=$(id -g) .
 ```
+
+Run with mount
+
 ```bash
 docker run -it --rm \
   --mount "type=bind,src=$(pwd)/data,dst=/home/user1/starspace" \
   myimage
+```
+or
+
+run with volume (better way)
+
+```bash
+docker run -it -v $(pwd)/volume:/home/user1/starspace myimage
 ```
